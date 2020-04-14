@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=production node ./bin/www"
+    "start": "NODE_ENV=production node -r dotenv/config ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
@@ -13,6 +14,8 @@
     "http-errors": "~1.6.3",
     "mongoose": "^5.9.9",
     "morgan": "~1.9.1",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "slugify": "^1.4.0",
+    "validator": "^13.0.0"
   }
 }
