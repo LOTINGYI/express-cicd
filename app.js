@@ -10,7 +10,15 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-
+if (process.env.NODE_ENV === 'production') {
+  mongoose.set('useNewUrlParser', true);
+  mongoose.set('useFindAndModify', false);
+  mongoose.set('useCreateIndex', true);
+  mongoose.set('useUnifiedTopology', true);
+  mongoose.connect(process.env.AZURE_COSMOS_CONNECTION_STRING)
+    .then(() => { console.log('CosmosDB connected') })
+    .catch(err => console.log(err))
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
